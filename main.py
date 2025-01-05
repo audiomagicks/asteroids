@@ -36,10 +36,14 @@ def main():
 			if object.collision(player):
 				print("Game over!")
 				exit()
+			for shot in shots:
+				if shot.collision(object):
+					object.kill()
+					shot.kill()
 
 		for object in drawable:
 			object.draw(screen)
-			
+
 		pygame.display.flip()
 
 		dt = clock.tick(60) / 1000
